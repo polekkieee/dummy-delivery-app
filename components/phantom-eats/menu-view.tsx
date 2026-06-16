@@ -41,7 +41,7 @@ export function MenuView({
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.35 }}
-          className="-mt-8 rounded-3xl bg-card p-5 shadow-sm ring-1 ring-border"
+          className="-mt-8 rounded-3xl bg-card p-5 shadow-sm ring-1 ring-border z-50"
         >
           <h1 className="text-2xl font-bold text-foreground">{restaurant.name}</h1>
           <p className="mt-0.5 text-sm text-muted-foreground">{restaurant.cuisine}</p>
