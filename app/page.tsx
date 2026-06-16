@@ -24,7 +24,7 @@ export default function Page() {
   useEffect(() => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      // behavior: 'smooth'
     });
   }, [selected]);
 
