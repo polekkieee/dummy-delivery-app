@@ -1,6 +1,6 @@
 "use client"
 
-import { useMemo, useRef, useState } from "react"
+import { useMemo, useRef, useState, useEffect } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import { Ghost } from "lucide-react"
 import { restaurants, type CartEntry, type MenuItem, type Restaurant } from "@/lib/data"
@@ -20,6 +20,13 @@ export default function Page() {
   // Snapshot of the order totals at checkout time so the celebration is accurate.
   const [summary, setSummary] = useState({ total: 0, calories: 0 })
   const timers = useRef<ReturnType<typeof setTimeout>[]>([])
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }, [selected]);
 
   const entries = useMemo(() => Object.values(cart), [cart])
   const count = entries.reduce((n, e) => n + e.qty, 0)
