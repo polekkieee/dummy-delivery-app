@@ -22,7 +22,7 @@ export function MenuView({
         <img
           src={restaurant.image || "/placeholder.svg"}
           alt={restaurant.name}
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover z-40"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent" />
         <motion.button
