@@ -21,13 +21,6 @@ export default function Page() {
   const [summary, setSummary] = useState({ total: 0, calories: 0 })
   const timers = useRef<ReturnType<typeof setTimeout>[]>([])
 
-  useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      // behavior: 'smooth'
-    });
-  }, [selected]);
-
   const entries = useMemo(() => Object.values(cart), [cart])
   const count = entries.reduce((n, e) => n + e.qty, 0)
   const subtotal = entries.reduce((n, e) => n + e.item.price * e.qty, 0)
@@ -87,7 +80,10 @@ export default function Page() {
       </header>
 
       {/* Main views */}
-      <AnimatePresence mode="wait">
+      <AnimatePresence 
+        mode="wait" 
+        onExitComplete={() => window.scrollTo(0, 0)} 
+      >
         {selected ? (
           <motion.div
             key={selected.id}
